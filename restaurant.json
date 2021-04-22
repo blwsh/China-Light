@@ -1,0 +1,91 @@
+{
+  "name": "China Light",
+  "type": "Chinese",
+  "address": {
+    "line_1": "52 Market Street",
+    "city": "Huddersfield",
+    "post_code": "HD3 4GD",
+    "country": "United Kingdom"
+  },
+  "hours": [
+    {"day": 1, "from": "17:00", "to": "20:30"},
+    {"day": 2, "from": null, "to": null},
+    {"day": 3, "from": "17:00", "to": "20:30"},
+    {"day": 4, "from": "17:00", "to": "0:30"},
+    {"day": 5, "from": "17:00", "to": "20:30"},
+    {"day": 6, "from": "17:00", "to": "20:30"},
+    {"day": 7, "from": "17:00", "to": "20:30"}
+  ],
+  "logoImage": "https://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/146049.gif",
+  "coverImage": "https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto,w_414,h_300,d_uk:cuisines:chinese-9.jpg/v1/uk/restaurants/146049.jpg",
+  "categories": [
+    {
+      "name": "Fried Rice",
+      "items": [
+        {"name": "Egg Fried Rice", "description": "Egg Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
+        {"name": "Chicken Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
+        {"name": "Beef Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
+        {"name": "Pork Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
+        {"name": "Char Sui Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
+        {"name": "Prawn Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
+        {"name": "King Prawn Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}
+      ]
+    },
+    {
+      "name": "Curry Dishes",
+      "items": [
+        {"name": "Chicken Curry", "price": 620},
+        {"name": "Beef Curry", "price": 620},
+        {"name": "Pork Curry", "price": 620},
+        {"name": "Char Sui Curry", "price": 620},
+        {"name": "Prawn Curry", "price": 620},
+        {"name": "King Prawn Curry", "price": 620}
+      ]
+    },
+    {
+      "name": "Extras",
+      "items": [
+        {"name": "Prawn Crackers", "price": 150},
+        {"name": "Chips", "price": 150},
+        {"name": "Salt and Pepper Chips", "price": 250},
+        {"name": "Prawn Toast", "price": 350},
+        {"name": "Wutons", "price": 150},
+        {"name": "Seaweed", "price": 150},
+        {"name": "BBQ Spare Ribs", "price": 620},
+        {"name": "OK Spare Ribs", "price": 650},
+        {"name": "Salt and Pepper Chicken Wings", "price": 480}
+      ]
+    },
+    {
+      "name": "Chow Mein (Noodles)",
+      "items": [
+        {"name": "Egg Chow Mein", "price": 550},
+        {"name": "Chicken Chow Mein", "price": 590},
+        {"name": "Beef Chow Mein", "price": 590},
+        {"name": "Pork Chow Mein", "price": 590},
+        {"name": "Char Sui Chow Mein", "price": 650},
+        {"name": "Prawn Chow Mein", "price": 650},
+        {"name": "King Prawn Chow Mein", "price": 650}
+      ]
+    },
+    {
+      "name": "Sweet and Sour",
+      "items": [
+        {"name": "Sweet & Sour Chicken", "price": 620},
+        {"name": "Sweet & Sour Beef", "price": 620},
+        {"name": "Sweet & Sour Pork", "price": 620},
+        {"name": "Sweet & Sour Char Sui", "price": 620}
+      ]
+    },
+    {
+      "name": "Drinks",
+      "items": [
+        {"name": "Pepsi", "price": 620},
+        {"name": "Pepsi Max", "price": 620},
+        {"name": "Fanta", "price": 620},
+        {"name": "Tango", "price": 620},
+        {"name": "J2O", "price": 620}
+      ]
+    }
+  ]
+}
