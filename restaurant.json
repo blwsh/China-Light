@@ -22,13 +22,21 @@
     {
       "name": "Fried Rice",
       "items": [
-        {"name": "Egg Fried Rice", "description": "Egg Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
-        {"name": "Chicken Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
-        {"name": "Beef Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
-        {"name": "Pork Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
-        {"name": "Char Sui Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
-        {"name": "Prawn Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]},
-        {"name": "King Prawn Fried Rice", "price": 620, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}
+        {"name": "Egg Fried Rice", "description": "Egg Fried Rice", "price": 620, "options": [
+          {"name": "Size", "limit": 1, "options": [
+            {"name": "Regular", "price": 0},
+            {"name": "Large", "price": 120}
+          ]},
+          {"name": "Extras", "limit": -1, "options": [
+            {"name": "Spicy", "price": 20}
+          ]}
+        ]},
+        {"name": "Chicken Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]},
+        {"name": "Beef Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]},
+        {"name": "Pork Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]},
+        {"name": "Char Sui Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]},
+        {"name": "Prawn Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]},
+        {"name": "King Prawn Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]}
       ]
     },
     {
@@ -52,7 +60,7 @@
         {"name": "Wutons", "price": 150},
         {"name": "Seaweed", "price": 150},
         {"name": "BBQ Spare Ribs", "price": 620},
-        {"name": "OK Spare Ribs", "price": 650},
+        {"name": "OK Spare Ribs", "price": 620},
         {"name": "Salt and Pepper Chicken Wings", "price": 480}
       ]
     },
@@ -71,20 +79,20 @@
     {
       "name": "Sweet and Sour",
       "items": [
-        {"name": "Sweet & Sour Chicken", "price": 620},
-        {"name": "Sweet & Sour Beef", "price": 620},
-        {"name": "Sweet & Sour Pork", "price": 620},
-        {"name": "Sweet & Sour Char Sui", "price": 620}
+        {"name": "Sweet & Sour Chicken", "price": 660},
+        {"name": "Sweet & Sour Beef", "price": 660},
+        {"name": "Sweet & Sour Pork", "price": 660},
+        {"name": "Sweet & Sour Char Sui", "price": 660}
       ]
     },
     {
       "name": "Drinks",
       "items": [
-        {"name": "Pepsi", "price": 620},
-        {"name": "Pepsi Max", "price": 620},
-        {"name": "Fanta", "price": 620},
-        {"name": "Tango", "price": 620},
-        {"name": "J2O", "price": 620}
+        {"name": "Pepsi", "price": 100},
+        {"name": "Pepsi Max", "price": 100},
+        {"name": "Fanta", "price": 100},
+        {"name": "Tango", "price": 100},
+        {"name": "J2O", "price": 100}
       ]
     }
   ]
