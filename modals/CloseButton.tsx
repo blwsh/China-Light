@@ -7,7 +7,7 @@ const CloseButton: React.FC<{onPress?: () => void}> = props => {
     style={[{
       position: 'absolute',
       color: 'white',
-      textShadowRadius: 10,
+      textShadowRadius: 5,
       textShadowColor: 'rgba(48,48,48,.5)',
       fontSize: 48,
       top: 40,

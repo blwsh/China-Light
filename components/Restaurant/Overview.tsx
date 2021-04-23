@@ -2,7 +2,6 @@ import React from "react";
 import {View} from "react-native";
 import {Heading, Rating, Restaurant, Row, Text} from "../";
 import {Restaurant as RestaurantType} from "../../types";
-import styles from "../../styles";
 
 type OverviewProps = {restaurant: RestaurantType} & View['props'];
 
@@ -17,7 +16,7 @@ const Overview: React.FC<OverviewProps> = ({restaurant, ...props}) => {
 
       <Row>
         <Rating rating={3.5} of={5}/>
-        <Text color={styles.blue.color} weight="600">View 26 Reviews</Text>
+        <Text color="#3189c3" weight="600">View 26 Reviews</Text>
       </Row>
 
       <Text style={{marginVertical: 10, textAlign: 'center'}}>{Object.values(address).join(', ')}</Text>

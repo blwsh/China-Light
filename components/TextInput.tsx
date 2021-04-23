@@ -1,13 +1,13 @@
 import React from "react";
-import {StyleSheet, TextInput as BaseTextInput, View} from "react-native";
+import {StyleProp, StyleSheet, TextInput as BaseTextInput, View, ViewStyle} from "react-native";
 import Text from "./Text";
 
-type TextInputProps = { label?: string, ref?: React.Ref<any> } & BaseTextInput['props'];
+type TextInputProps = { label?: string, containerStyle?: StyleProp<ViewStyle> } & BaseTextInput['props'];
 
 const TextInput: React.FC<TextInputProps> = (props) => {
-  const {label, ref, ...otherProps} = props;
+  const {label, containerStyle, ...otherProps} = props;
 
-  return <View>
+  return <View style={containerStyle}>
     {(label || otherProps.placeholder) && <Text style={styles.label}>{label || otherProps.placeholder}</Text>}
     <BaseTextInput {...otherProps}/>
   </View>
