@@ -3,24 +3,6 @@
  * https://reactnavigation.org/docs/typescript/
  */
 
-export type RootStackParamList = {
-  Root: undefined;
-  NotFound: undefined;
-};
-
-export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
-};
-
-export type TabOneParamList = {
-  TabOneScreen: undefined;
-};
-
-export type TabTwoParamList = {
-  TabTwoScreen: undefined;
-};
-
 export interface Restaurant {
   name: string,
   type: string,
@@ -33,25 +15,27 @@ export interface Restaurant {
 
 export interface RestaurantCategory {
   name: string,
-  items: MenuItem[],
+  items: Product[],
 }
 
 export interface Product {
+  id: number,
   name: string,
   price: number,
-}
-
-export interface MenuItem extends Product {
   description?: string,
-  options?: MenuItemOption[],
-
+  options?: ProductOptionGroup[],
 }
 
-export interface MenuItemOption extends Product {}
+export interface ProductOption extends Product {
+  //
+}
 
-export interface BasketItem {
-  product: Product,
-  options: Product[]
+export interface ProductOptionGroup {
+  id: string,
+  name: string,
+  description?: string,
+  limit: number,
+  options: ProductOption[]
 }
 
 export interface OpeningHours {
@@ -68,4 +52,23 @@ export interface Address {
   post_code: string,
   county?: string,
   country: string,
+}
+
+export interface Basket {
+  items: BasketItem[],
+  subtotal: number
+  clear?: () => Basket
+}
+
+export interface BasketItem {
+  product: Product,
+  options: ProductOption[],
+  quantity: number
+}
+
+export interface DiscountPolicy {
+  name: string
+  value: string
+  type: 'percentage'|'fixed'
+  condition?: (...arg: any) => void
 }
