@@ -20,15 +20,16 @@
   "coverImage": "https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto,w_414,h_300,d_uk:cuisines:chinese-9.jpg/v1/uk/restaurants/146049.jpg",
   "categories": [
     {
+      "id": 1,
       "name": "Fried Rice",
       "items": [
-        {"name": "Egg Fried Rice", "description": "Egg Fried Rice", "price": 620, "options": [
-          {"name": "Size", "limit": 1, "options": [
-            {"name": "Regular", "price": 0},
-            {"name": "Large", "price": 120}
+        {"id": 1, "name": "Egg Fried Rice", "description": "Egg Fried Rice", "price": 620, "options": [
+          {"id": 1, "name": "Size", "limit": 1, "options": [
+            {"id": 1, "name": "Regular", "price": 0},
+            {"id": 2, "name": "Large", "price": 120}
           ]},
-          {"name": "Extras", "limit": -1, "options": [
-            {"name": "Spicy", "price": 20}
+          {"id": 2, "name": "Extras", "limit": -1, "options": [
+            {"id": 3, "name": "Spicy", "price": 20}
           ]}
         ]},
         {"name": "Chicken Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]},
@@ -38,8 +39,8 @@
         {"name": "Prawn Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]},
         {"name": "King Prawn Fried Rice", "price": 620, "options": [{"name": "Size", "limit": 1, "options": [{"name": "Regular", "price": 0}, {"name": "Large", "price": 120}]}]}
       ]
-    },
-    {
+    }, {
+      "id": 2,
       "name": "Curry Dishes",
       "items": [
         {"name": "Chicken Curry", "price": 620},
@@ -49,8 +50,8 @@
         {"name": "Prawn Curry", "price": 620},
         {"name": "King Prawn Curry", "price": 620}
       ]
-    },
-    {
+    }, {
+      "id": 3,
       "name": "Extras",
       "items": [
         {"name": "Prawn Crackers", "price": 150},
@@ -63,8 +64,8 @@
         {"name": "OK Spare Ribs", "price": 620},
         {"name": "Salt and Pepper Chicken Wings", "price": 480}
       ]
-    },
-    {
+    }, {
+      "id": 4,
       "name": "Chow Mein (Noodles)",
       "items": [
         {"name": "Egg Chow Mein", "price": 550},
@@ -75,8 +76,8 @@
         {"name": "Prawn Chow Mein", "price": 650},
         {"name": "King Prawn Chow Mein", "price": 650}
       ]
-    },
-    {
+    }, {
+      "id": 5,
       "name": "Sweet and Sour",
       "items": [
         {"name": "Sweet & Sour Chicken", "price": 660},
@@ -84,8 +85,8 @@
         {"name": "Sweet & Sour Pork", "price": 660},
         {"name": "Sweet & Sour Char Sui", "price": 660}
       ]
-    },
-    {
+    }, {
+      "id": 6,
       "name": "Drinks",
       "items": [
         {"name": "Pepsi", "price": 100},
