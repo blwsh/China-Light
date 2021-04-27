@@ -4,12 +4,10 @@ import Text from "./Text";
 
 type TextInputProps = { label?: string, containerStyle?: StyleProp<ViewStyle> } & BaseTextInput['props'];
 
-const TextInput: React.FC<TextInputProps> = (props) => {
-  const {label, containerStyle, ...otherProps} = props;
-
+const TextInput: React.FC<TextInputProps> = ({label, style, containerStyle, ...props}) => {
   return <View style={containerStyle}>
-    {(label || otherProps.placeholder) && <Text style={styles.label}>{label || otherProps.placeholder}</Text>}
-    <BaseTextInput {...otherProps}/>
+    {(label || props.placeholder) && <Text style={styles.label}>{label || props.placeholder}</Text>}
+    <BaseTextInput style={[styles.input, style]} {...props}/>
   </View>
 }
 
@@ -23,6 +21,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
     borderRadius: 4,
     zIndex: 1
+  },
+  input: {
+    width: '100%',
+    fontSize: 16,
+    padding: 20,
+    marginVertical: 10,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#e9e9e9',
   }
 })
 

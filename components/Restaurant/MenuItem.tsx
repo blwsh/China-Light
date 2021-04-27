@@ -1,28 +1,61 @@
 import * as React from "react";
-import {Text} from "../";
-import styles from "../../styles";
-import money from "../../utils/money";
-import {MenuItem as MenuItemType} from "../../types";
-import {TouchableOpacity, View} from "react-native";
+import {Price, Text} from "../";
+import {Product} from "../../types";
+import {StyleSheet, TouchableOpacity, View} from "react-native";
 
-const MenuItem: React.FC<{item: MenuItemType, onPress?: () => void} & View['props']> = props => {
-  const {item, onPress, style, ...otherProps} = props;
+type Props = {
+  product: Product,
+  quantitySelected?: number|undefined,
+  onPress?: () => void
+  renderActions?: JSX.Element|null|false
+} & View['props'];
 
-  return (
+const MenuItem: React.FC<Props> = ({product, quantitySelected, onPress, renderActions, style, ...props}) => {
+  return product ? (
     <TouchableOpacity
       accessible={true}
       onPress={onPress}
-      accessibilityLabel={`Add ${item.name} to basket.`}
+      style={styles.container}
+      accessibilityLabel={`Add ${product.name} to basket.`}
     >
-      <View style={[styles.menuItem, style]} {...otherProps}>
-        <Text>{item.name}</Text>
-        <View style={styles.priceContainer}>
-          <Text style={styles.pricePreDiscount}>{money(item.price / 100)}</Text>
-          <Text style={[styles.bold, styles.blue]}>{money((item.price * .9) / 100)}</Text>
+      <View style={[styles.menuItem, style]} {...props}>
+        <Text weight={quantitySelected ? 'bold' : 'normal'}>
+          {typeof quantitySelected !== 'undefined' && quantitySelected > 0
+            ? `${quantitySelected} x `
+            : null} {product.name}
+        </Text>
+        <View style={styles.info}>
+          <Price price={product.price} discountPrice={product.price * .9}/>
+          {typeof renderActions !== 'undefined' && (
+            <View>
+              {renderActions}
+            </View>
+          )}
         </View>
       </View>
     </TouchableOpacity>
-  )
+  ) : null;
 }
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex'
+  },
+  menuItem: {
+    display: 'flex',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    flexWrap: 'nowrap',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    padding: 15,
+    marginVertical: 10,
+  },
+  info: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  }
+})
 
 export default MenuItem;

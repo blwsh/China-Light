@@ -1,24 +1,20 @@
 import {Text} from "./index";
-import {TouchableOpacity} from "react-native";
+import {ColorValue, StyleSheet, TouchableOpacity} from "react-native";
 import React from "react";
 
-const Button: React.FC<TouchableOpacity['props']> = ({style, ...props}) => (
-  <TouchableOpacity
-    style={[
-      {
-        backgroundColor: '#ffa800',
-        padding: 20,
-        marginVertical: 20,
-        borderRadius: 10,
-        alignItems: 'center'
-      },
-      style,
-    ]}
-    accessible={true}
-    {...props}
-  >
-    <Text style={{color: '#fff'}}>{props.children}</Text>
+type Props = {size?: 'small'|'regular'|'large'|null, color?: ColorValue, textColor?: ColorValue} & TouchableOpacity['props']
+
+const Button: React.FC<Props> = ({style, size, color, textColor, ...props}) => {
+  const styles = StyleSheet.create({
+    button: {backgroundColor: color || '#ffa800', alignItems: 'center', borderRadius: 10},
+    small: {padding: 5, paddingVertical: 2, borderRadius: 5},
+    regular: {padding: 10},
+    large: {padding: 20},
+  });
+
+  return <TouchableOpacity style={[styles.button, styles[size || 'regular'], style]} accessible={true} {...props}>
+    <Text style={{color: textColor || '#fff'}}>{props.children}</Text>
   </TouchableOpacity>
-);
+};
 
 export default Button
