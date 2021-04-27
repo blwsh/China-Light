@@ -1,23 +1,27 @@
 import * as React from "react";
 import money from "../../utils/money";
-import {Alert, View} from "react-native";
-import {Basket as BasketType} from "../../types";
+import {Alert, TouchableOpacity, View} from "react-native";
+import {Basket as BasketType, BasketItem} from "../../types";
 import {Basket as BasketClass} from "../../classes";
 import {Button, Heading, Text} from "../";
 
-type Props = {basket: BasketType, onUpdate?: (basket: BasketType) => void} & View['props'];
+type Props = {
+  basket: BasketType,
+  onPress?: (item: BasketItem) => void
+  onUpdate?: (basket: BasketType) => void
+} & View['props'];
 
-const Basket: React.FC<Props> = ({basket, onUpdate, ...props}) => {
+const Basket: React.FC<Props> = ({basket, onPress, onUpdate, ...props}) => {
   return <View {...props}>
     <Heading>Basket</Heading>
 
     {basket.items.map((item, key) => (
-      <View key={key}>
+      <TouchableOpacity key={key} onPress={() => onPress?.(item)}>
         <Text>{item.quantity} x {item.product.name} ({money((item.product.price / 100) * item.quantity)})</Text>
         {item.options.map((option, key) => (
           <Text key={key}> - {option.name} + {money(option.price / 100)}</Text>
         ))}
-      </View>
+      </TouchableOpacity>
     ))}
 
     <Text> </Text>
