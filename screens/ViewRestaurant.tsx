@@ -13,7 +13,7 @@ const ViewRestaurant: React.FC<ScrollView['props']> = props => {
   const [basketItem, setBasketItem] = useState<Product|null>(null);
 
   useEffect(() => {
-    setTimeout(() => setRestaurant(require('../restaurant.json')), 1000);
+    setTimeout(() => setRestaurant(require('../restaurant.json')), 150);
   }, [restaurant]);
 
   const addToBasket = useCallback((item: BasketItem) => {
@@ -27,7 +27,7 @@ const ViewRestaurant: React.FC<ScrollView['props']> = props => {
     <Restaurant.Overview restaurant={restaurant}/>
 
     <View style={{paddingVertical: 25, width: '90%'}}>
-      <Basket basket={basket} onUpdate={basket => setBasket(basket)}/>
+      <Basket basket={basket} onPress={item => setBasketItem(item.product)} onUpdate={basket => setBasket(basket)}/>
       {restaurant.categories.map((category, key) => (
         <Restaurant.Category key={key} category={category} onPressMenuItem={item => setBasketItem(item)}/>
       ))}
