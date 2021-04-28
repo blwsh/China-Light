@@ -24,8 +24,7 @@ const OptionsGroup: React.FC<Props> = ({selectedOptionsMap, group, onSelectOptio
             quantitySelected={selected?.length}
             onPress={() => onSelectOption(group, item)}
             renderActions={group.limit !== 1 && selected?.length > 0 && (
-              <Button size="small" color="crimson" style={{marginLeft: 10}}
-                      onPress={() => onRemoveOption(group, item)}>
+              <Button size="small" color="crimson" style={{marginLeft: 10}} onPress={() => onRemoveOption(group, item)}>
                 Remove
               </Button>
             )}

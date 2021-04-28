@@ -6,8 +6,8 @@ import money from "../utils/money";
 
 const Price: React.FC<{price: number, discountPrice?: number|null, fontSize?: number}> = ({price, discountPrice, fontSize = 16}) => {
   const styles = StyleSheet.create({
-    priceContainer: {flexDirection: 'row', alignItems: 'center'},
     price: {fontSize: fontSize},
+    priceContainer: {flexDirection: 'row', alignItems: 'center'},
     pricePreDiscount: {color: 'grey', fontSize: fontSize * .7, textDecorationLine: 'line-through', marginRight: 5},
   });
 
