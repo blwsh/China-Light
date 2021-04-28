@@ -31,6 +31,7 @@ const ViewRestaurant: React.FC<ScrollView['props']> = props => {
       {restaurant.categories.map((category, key) => (
         <Restaurant.Category key={key} category={category} onPressMenuItem={item => setBasketItem(item)}/>
       ))}
+      <Basket basket={basket} onPress={item => setBasketItem(item.product)} onUpdate={basket => setBasket(basket)}/>
     </View>
 
     <AddMenuItemToBasket
