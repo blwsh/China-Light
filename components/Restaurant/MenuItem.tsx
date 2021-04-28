@@ -1,31 +1,24 @@
 import * as React from "react";
 import {Price, Text} from "../";
-import {Product} from "../../types";
+import {BasketItem, Product} from "../../types";
 import {StyleSheet, TouchableOpacity, View} from "react-native";
 
 type Props = {
-  product: Product,
-  quantitySelected?: number|undefined,
+  item: BasketItem,
+  quantity?: number,
   onPress?: () => void
   renderActions?: JSX.Element|null|false
 } & View['props'];
 
-const MenuItem: React.FC<Props> = ({product, quantitySelected, onPress, renderActions, style, ...props}) => {
-  return product ? (
-    <TouchableOpacity
-      accessible={true}
-      onPress={onPress}
-      style={styles.container}
-      accessibilityLabel={`Add ${product.name} to basket.`}
-    >
+const MenuItem: React.FC<Props> = ({item, quantity, onPress, renderActions, style, ...props}) => {
+  return item ? (
+    <TouchableOpacity accessible={true} onPress={onPress} style={styles.container}>
       <View style={[styles.menuItem, style]} {...props}>
-        <Text weight={quantitySelected ? 'bold' : 'normal'}>
-          {typeof quantitySelected !== 'undefined' && quantitySelected > 0
-            ? `${quantitySelected} x `
-            : null} {product.name}
+        <Text weight={quantity ? 'bold' : 'normal'}>
+          {typeof quantity !== 'undefined' && quantity > 0 ? `${quantity} x ` : null} {item.product.name}
         </Text>
         <View style={styles.info}>
-          <Price price={product.price} discountPrice={product.price * .9}/>
+          <Price price={item.product.price} discountPrice={item.product.price * .9}/>
           {typeof renderActions !== 'undefined' && (
             <View>
               {renderActions}

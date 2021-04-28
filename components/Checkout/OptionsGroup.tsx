@@ -2,6 +2,7 @@ import React from "react";
 import {View} from "react-native";
 import {Button, Restaurant, SubHeading} from "../index";
 import {Product, ProductOptionGroup} from "../../types";
+import {BasketItem} from "../../classes";
 
 type Props = {
   group: ProductOptionGroup,
@@ -20,8 +21,8 @@ const OptionsGroup: React.FC<Props> = ({selectedOptionsMap, group, onSelectOptio
         return (
           <Restaurant.MenuItem
             key={key}
-            product={item}
-            quantitySelected={selected?.length}
+            quantity={selected?.length}
+            item={new BasketItem({product: item})}
             onPress={() => onSelectOption(group, item)}
             renderActions={group.limit !== 1 && selected?.length > 0 && (
               <Button size="small" color="crimson" style={{marginLeft: 10}} onPress={() => onRemoveOption(group, item)}>

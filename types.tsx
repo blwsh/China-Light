@@ -66,9 +66,15 @@ export interface Basket {
   clear?: () => Basket
 }
 
+export type OptionsMap = {
+  [key: string]: { [key: string]: Product[] }
+}
+
 export interface BasketItem {
+  exists: boolean;
   product: Product,
   options: ProductOption[],
+  optionsMap?: OptionsMap,
   quantity: number,
   price: number
 }

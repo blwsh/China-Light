@@ -10,7 +10,7 @@ import {Basket as BasketClass} from "../classes";
 const ViewRestaurant: React.FC<ScrollView['props']> = props => {
   const [restaurant, setRestaurant] = useState<RestaurantType|null>(null);
   const [basket, setBasket] = useState<BasketType>(new BasketClass());
-  const [basketItem, setBasketItem] = useState<Product|null>(null);
+  const [basketItem, setBasketItem] = useState<BasketItem|null>(null);
 
   useEffect(() => {
     setTimeout(() => setRestaurant(require('../restaurant.json')), 150);
@@ -21,17 +21,21 @@ const ViewRestaurant: React.FC<ScrollView['props']> = props => {
     setBasket(basket)
   }, [basket]);
 
+  const updateBasketItem = useCallback((item: BasketItem) => {
+    console.log('update', item)
+  }, [basket]);
+
   return restaurant ? <ScrollView contentContainerStyle={{alignItems: 'center'}} {...props}>
     <Image source={{uri: restaurant.coverImage}} style={{width: '100%', height: 260, resizeMode: 'cover'}}/>
 
     <Restaurant.Overview restaurant={restaurant}/>
 
     <View style={{paddingVertical: 25, width: '90%'}}>
-      <Basket basket={basket} onPress={item => setBasketItem(item.product)} onUpdate={basket => setBasket(basket)}/>
+      <Basket basket={basket} onPress={item => setBasketItem(item)} onUpdate={basket => setBasket(basket)}/>
       {restaurant.categories.map((category, key) => (
         <Restaurant.Category key={key} category={category} onPressMenuItem={item => setBasketItem(item)}/>
       ))}
-      <Basket basket={basket} onPress={item => setBasketItem(item.product)} onUpdate={basket => setBasket(basket)}/>
+      <Basket basket={basket} onPress={item => setBasketItem(item)} onUpdate={basket => setBasket(basket)}/>
     </View>
 
     <AddMenuItemToBasket
@@ -39,6 +43,7 @@ const ViewRestaurant: React.FC<ScrollView['props']> = props => {
       visible={basketItem !== null}
       coverImage={restaurant.coverImage}
       onAddToBasket={item => addToBasket(item)}
+      onUpdateBasketItem={item => updateBasketItem(item)}
       onRequestClose={() => setBasketItem(null)}
     />
   </ScrollView> : <Loading/>

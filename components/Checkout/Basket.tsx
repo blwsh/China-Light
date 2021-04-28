@@ -22,11 +22,8 @@ const Basket: React.FC<Props> = ({basket, onPress, onUpdate, ...props}) => {
 
   return <View {...props}>
     <Heading>Basket</Heading>
-
-    {basket.items.map((item, key) => <BasketRow item={item} onPress={onPress}/>)}
-
+    {basket.items.map((item, key) => <BasketRow {...{key, item, onPress}}/>)}
     <BasketSummary basket={basket}/>
-
     <Button size="large" onPress={onClearBasket}>Clear Basket</Button>
   </View>
 }
