@@ -2,11 +2,12 @@ import React, {useCallback, useState} from "react";
 import {setWith} from "lodash";
 import {Image, KeyboardAvoidingView, Modal, ScrollView, View} from "react-native";
 import {Button} from "../components";
-import {BasketItem, Product, ProductOptionGroup} from "../types";
+import {Product, ProductOptionGroup} from "../types";
 import CloseButton from "./CloseButton";
 import {Quantity} from "../components/Inputs";
 import BasketHeader from "../components/Checkout/BasketHeader";
 import OptionsGroup from "../components/Checkout/OptionsGroup";
+import {BasketItem} from "../classes";
 
 type Props = { item: Product, onAddToBasket: (item: BasketItem) => void, coverImage: string } & Modal['props'];
 
@@ -46,11 +47,11 @@ const AddMenuItemToBasket: React.FC<Props> = ({item, onAddToBasket, onRequestClo
       optionsArray = [...optionsArray, ...items];
     }));
 
-    onAddToBasket({
+    onAddToBasket(new BasketItem({
       product: item,
       quantity: quantity,
       options: optionsArray
-    });
+    }));
 
     onRequestClose?.();
   }, [quantity, options]);
@@ -68,14 +69,14 @@ const AddMenuItemToBasket: React.FC<Props> = ({item, onAddToBasket, onRequestClo
           <BasketHeader item={item}/>
 
           {(item.options && item.options.length > 0) && item.options?.map((group, key) => (
-            <OptionsGroup group={group} selectedOptionsMap={options} onSelectOption={onSelectOption} onRemoveOption={onRemoveOption}/>
+            <OptionsGroup key={key} group={group} selectedOptionsMap={options} onSelectOption={onSelectOption} onRemoveOption={onRemoveOption}/>
           ))}
 
           <Quantity style={{marginVertical: 20}} value={quantity} max={10} onChange={value => setQuantity(value + 1)}/>
 
           <Button size="large" style={{marginBottom: 10}} onPress={onSubmit}>Add to Basket</Button>
 
-          <Button size="regular" color="transparent" textColor="red" style={{borderWidth: 1, borderColor: 'red', marginBottom: 10}} onPress={() => onRequestClose?.()}>Cancel</Button>
+          <Button size="large" color="transparent" textColor="red" style={{borderWidth: 1, borderColor: 'red', marginBottom: 10}} onPress={() => onRequestClose?.()}>Cancel</Button>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
