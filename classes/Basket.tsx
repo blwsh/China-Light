@@ -17,12 +17,12 @@ export default class Basket implements BasketInterface {
     return this._subtotal;
   }
 
+  set subtotal(value: number) {
+    throw new Error("Attempted to set the subtotal for a basket directly.");
+  }
+
   clear(): this {
     this.items = [];
     return this;
-  }
-
-  set subtotal(value: number) {
-    throw new Error("Attempted to set the subtotal for a basket directly.");
   }
 }
