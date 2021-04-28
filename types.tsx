@@ -52,6 +52,12 @@ export interface Address {
   post_code: string,
   county?: string,
   country: string,
+  geo?: GeoMarker
+}
+
+export interface GeoMarker {
+  lat: number
+  lng: number
 }
 
 export interface Basket {
@@ -63,7 +69,8 @@ export interface Basket {
 export interface BasketItem {
   product: Product,
   options: ProductOption[],
-  quantity: number
+  quantity: number,
+  price: number
 }
 
 export interface DiscountPolicy {
@@ -71,4 +78,14 @@ export interface DiscountPolicy {
   value: string
   type: 'percentage'|'fixed'
   condition?: (...arg: any) => void
+}
+
+export interface DeliveryPolicy {
+  name: string,
+  price: number,
+  isDefault: boolean,
+  minRadius?: number,
+  maxRadius?: number,
+  minSpend?: number,
+  maxSpend?: number
 }

@@ -1,10 +1,38 @@
 import * as React from 'react';
 import {ScrollView, StyleSheet, View} from "react-native";
 import {Text, TextInput} from "../components";
-
+import MapView from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
 
 export default function TabTwoScreen() {
+  const origin = {latitude: 53.6546552, longitude: -1.8332872};
+  const destination = {latitude: 53.6407513, longitude: -1.8286269};
+
   return <ScrollView contentContainerStyle={{alignItems: 'center'}}>
+    <MapView
+      zoomEnabled={false}
+      rotateEnabled={false}
+      toolbarEnabled={false}
+      initialRegion={{
+        latitude: origin.latitude,
+        longitude: origin.longitude,
+        latitudeDelta: 0.075,
+        longitudeDelta: 0.05,
+      }}
+      style={{
+        width: '100%',
+        height: 300
+      }}
+    >
+      <MapViewDirections
+        origin={origin}
+        destination={destination}
+        apikey="AIzaSyAyMK_c3GcQQnw9zaucs-1VOjyXOKaxUXI"
+        strokeWidth={3}
+        strokeColor="hotpink"
+      />
+    </MapView>
+
     <View style={{width: '90%', marginHorizontal: 'auto'}}>
       <Text style={styles.subtitle}>General</Text>
       <TextInput placeholder="Email" value="ben@blw.sh"/>
