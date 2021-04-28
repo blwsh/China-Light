@@ -58,7 +58,7 @@ const AddMenuItemToBasket: React.FC<Props> = ({item, onAddToBasket, onUpdateBask
     }));
 
     // We clone the item so we don't manipulate the original one by mistake.
-    const updatedItem = {...item};
+    const updatedItem = Object.assign(Object.create(item), item);
 
     // Then set the updates values for the basket item
     updatedItem.quantity = quantity;
